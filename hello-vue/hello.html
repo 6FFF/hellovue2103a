@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>天域洗发水</title>
+</head>
+<body>
+<center>
+    <p style="color: deeppink;font-size : 60px">天域洗发水</p>
+<div id="app" style="background-color: crimson">
+    <input type="text" v-model="name">
+    <input type="text" v-model="num">
+    <button v-on:click="num++" style="color: blueviolet">点我</button>
+    <button v-on:click="add" style="color: midnightblue">加</button>
+    <button v-on:click="jian" style="color: indigo">减</button>
+    <h2 style="color: cyan">
+        <span style="color: darkblue">{{name}}</span>，是屑王！！！有<span style="color: black">{{num}}</span></span>个人给他推荐洗发水。
+    </h2><br />
+    v-text:<span v-text="hello"></span><br/>
+    v-html:<span v-html="hello"></span><br/>
+
+
+    <input type="checkbox" v-model="language" value="java">java<br/>
+    <input type="checkbox" v-model="language" value="javascript">javascript<br/>
+    <input type="checkbox" v-model="language" value="c++">c++<br/>
+
+    <div id="app2">
+        <h1>{{name}} ,非常饿！连吃{{num}}坨大便</h1>
+    </div>
+</div>
+</center>
+</body>
+<script src="node_modules/vue/dist/vue.js" ></script>
+<script>
+    // 创建vue实例
+    var app = new Vue({
+        el: "#app", // el即element，该vue实例要渲染的页面元素
+        data: { // 渲染页面需要的数据
+            name: "张子航",
+            num: 5,
+            hello:"<h1>1111111111</h1>",
+            language:[]   /*记录选中的语言的值*/
+        },
+        methods:{
+            add:function () {
+                this.num++;
+            },
+            jian:function () {
+                this.num--;
+            }
+
+        },
+        // created:function () {
+        //     this.num=100
+        // },
+        mounted:function () {
+            this.num = 200;
+            console.log(this);//打印日志
+        }
+    });
+
+</script>
+</html>
